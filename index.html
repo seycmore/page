@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; connect-src 'none'; font-src 'self'; form-action 'none'; img-src 'self'; manifest-src 'none'; media-src 'none'; object-src 'none'; script-src 'none'; style-src 'self' 'sha256-PEqujNL+8Dl3mYF02mbXQgOBo4pjEDpPURL0d39g8jI='; worker-src 'none'; upgrade-insecure-requests" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -22,7 +22,7 @@
   <meta property="og:title" content="Seycmore | Segurança Digital" />
   <meta property="og:description" content="Segurança digital para conexões críticas, produtos em crescimento e marcas que precisam de confiança." />
   <meta property="og:url" content="https://www.seycmore.com/" />
-  <meta property="og:image" content="https://www.seycmore.com/assets/brand/seycmore-logo-lockup-purple-square.png" />
+  <meta property="og:image" content="https://www.seycmore.com/assets/brand/seycmore-symbol-purple-square.png" />
 
   <style>
     :root {
@@ -35,8 +35,6 @@
       --soft: #d7e2ea;
       --cyan: #45d8ff;
       --green: #78f0b5;
-      --violet: #9d6cff;
-      --rose: #ff6f9f;
       --shadow: rgba(0, 0, 0, 0.42);
     }
 
@@ -437,14 +435,6 @@
       object-fit: contain;
     }
 
-    code {
-      display: block;
-      margin-top: 8px;
-      color: var(--green);
-      font: 0.92rem ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      word-break: break-word;
-    }
-
     .site-footer {
       border-top: 1px solid var(--line);
       background: #070a0f;
@@ -574,7 +564,7 @@
       <div class="nav-links">
         <a href="#servicos">Serviços</a>
         <a href="#metodo">Método</a>
-        <a href="#trust">Trust Center</a>
+        <a href="#trust">Contato</a>
       </div>
     </nav>
   </header>
@@ -691,35 +681,38 @@
 
     <section class="trust" id="trust" aria-labelledby="trust-title">
       <div class="section-inner">
-        <p class="section-kicker">Trust Center</p>
-        <h2 id="trust-title">Favicon, contato de segurança e ativos de marca em ordem.</h2>
+        <p class="section-kicker">Confiança</p>
+        <h2 id="trust-title">Favicon e contato de segurança no ponto certo.</h2>
         <p class="section-copy">
-          O favicon principal está publicado na raiz do domínio para navegadores e cofres de senha que buscam o ícone automaticamente.
+          O favicon principal fica no caminho convencional para navegadores e cofres de senha que buscam o ícone automaticamente.
         </p>
 
         <div class="trust-layout">
           <article class="trust-panel">
             <h3>Favicon para cofre de senha</h3>
-            <p>Arquivo multi-size disponível no caminho convencional:</p>
-            <code>https://www.seycmore.com/favicon.ico</code>
+            <p>Arquivo multi-size disponível no caminho padrão dos navegadores, pronto para download e leitura automática por gerenciadores de senha.</p>
 
             <div class="asset-row">
               <img src="assets/icons/seycmore-favicon-transparent-512.png" alt="Símbolo Seycmore" />
               <div>
-                <strong>Fonte PNG transparente</strong>
-                <code>/assets/icons/seycmore-favicon-transparent-512.png</code>
+                <strong>Ícone Seycmore</strong>
+                <p>Versão transparente do símbolo principal da marca.</p>
               </div>
+            </div>
+
+            <div class="actions">
+              <a class="button button-secondary" href="/favicon.ico" download="seycmore-favicon.ico">Baixar favicon</a>
             </div>
           </article>
 
           <article class="trust-panel">
-            <h3>Segurança publicada</h3>
-            <p>O site usa assets locais, não carrega scripts de terceiros e declara um contato de segurança padrão.</p>
-            <ul>
-              <li>Política CSP definida no HTML.</li>
-              <li>Referrer policy restrita.</li>
-              <li>Arquivo de contato de segurança publicado no caminho padrão.</li>
-            </ul>
+            <h3>Contato responsável</h3>
+            <p>Relatos técnicos e mensagens comerciais chegam pelo canal oficial da Seycmore.</p>
+
+            <div class="actions">
+              <a class="button button-primary" href="mailto:seycmore@seycmore.com">Enviar mensagem</a>
+              <a class="button button-secondary" href="/.well-known/security.txt">Canal técnico</a>
+            </div>
           </article>
         </div>
       </div>
@@ -732,7 +725,7 @@
 
       <div class="footer-links">
         <a href="mailto:seycmore@seycmore.com">seycmore@seycmore.com</a>
-        <a href="/.well-known/security.txt">security.txt</a>
+        <a href="/.well-known/security.txt">Canal técnico</a>
         <a href="/favicon.ico" download="seycmore-favicon.ico">favicon.ico</a>
       </div>
     </div>

@@ -98,18 +98,18 @@ a {
 .globe-glow {
   z-index: 2;
   background:
-    radial-gradient(circle at 75.4% 30.8%, rgba(255, 229, 145, 0.88) 0 0.16%, rgba(255, 174, 65, 0.36) 0.25%, transparent 0.75%),
-    radial-gradient(circle at 78.2% 34.2%, rgba(255, 238, 168, 0.78) 0 0.14%, rgba(255, 177, 68, 0.32) 0.24%, transparent 0.68%),
-    radial-gradient(circle at 82.8% 37.5%, rgba(255, 220, 128, 0.72) 0 0.13%, rgba(255, 174, 67, 0.3) 0.24%, transparent 0.64%),
-    radial-gradient(circle at 86.4% 43.8%, rgba(255, 235, 155, 0.76) 0 0.16%, rgba(255, 172, 61, 0.31) 0.28%, transparent 0.72%),
-    radial-gradient(circle at 81.2% 50.5%, rgba(255, 225, 128, 0.68) 0 0.13%, rgba(255, 168, 58, 0.28) 0.24%, transparent 0.65%),
-    radial-gradient(circle at 76.6% 55.8%, rgba(255, 215, 118, 0.62) 0 0.12%, rgba(255, 166, 54, 0.24) 0.24%, transparent 0.62%),
-    radial-gradient(circle at 84.8% 59.4%, rgba(255, 235, 150, 0.66) 0 0.14%, rgba(255, 174, 66, 0.24) 0.24%, transparent 0.67%),
-    radial-gradient(circle at 89.8% 54.8%, rgba(255, 224, 140, 0.64) 0 0.12%, rgba(255, 172, 62, 0.24) 0.22%, transparent 0.62%),
+    radial-gradient(circle at 75.4% 30.8%, rgba(214, 188, 255, 0.72) 0 0.16%, rgba(137, 72, 255, 0.32) 0.25%, transparent 0.75%),
+    radial-gradient(circle at 78.2% 34.2%, rgba(186, 247, 255, 0.68) 0 0.14%, rgba(76, 255, 239, 0.28) 0.24%, transparent 0.68%),
+    radial-gradient(circle at 82.8% 37.5%, rgba(203, 177, 255, 0.64) 0 0.13%, rgba(144, 67, 255, 0.28) 0.24%, transparent 0.64%),
+    radial-gradient(circle at 86.4% 43.8%, rgba(189, 245, 255, 0.66) 0 0.16%, rgba(72, 226, 255, 0.28) 0.28%, transparent 0.72%),
+    radial-gradient(circle at 81.2% 50.5%, rgba(214, 189, 255, 0.6) 0 0.13%, rgba(147, 74, 255, 0.25) 0.24%, transparent 0.65%),
+    radial-gradient(circle at 76.6% 55.8%, rgba(178, 239, 255, 0.56) 0 0.12%, rgba(74, 255, 239, 0.22) 0.24%, transparent 0.62%),
+    radial-gradient(circle at 84.8% 59.4%, rgba(208, 180, 255, 0.58) 0 0.14%, rgba(143, 54, 255, 0.24) 0.24%, transparent 0.67%),
+    radial-gradient(circle at 89.8% 54.8%, rgba(184, 242, 255, 0.56) 0 0.12%, rgba(96, 196, 255, 0.22) 0.22%, transparent 0.62%),
     radial-gradient(circle at 72% 44%, rgba(83, 255, 239, 0.46) 0 0.1%, rgba(97, 199, 255, 0.2) 0.2%, transparent 0.58%),
     radial-gradient(circle at 91.4% 47.8%, rgba(74, 255, 239, 0.44) 0 0.1%, rgba(107, 184, 255, 0.2) 0.2%, transparent 0.58%),
-    radial-gradient(ellipse at 81% 45%, rgba(255, 190, 76, 0.16) 0 12%, rgba(144, 67, 255, 0.1) 13% 23%, transparent 35%),
-    radial-gradient(ellipse at 82% 48%, rgba(76, 255, 239, 0.12) 0 9%, transparent 27%);
+    radial-gradient(ellipse at 81% 45%, rgba(143, 54, 255, 0.14) 0 12%, rgba(76, 255, 239, 0.08) 13% 23%, transparent 35%),
+    radial-gradient(ellipse at 82% 48%, rgba(76, 255, 239, 0.1) 0 9%, transparent 27%);
   mix-blend-mode: screen;
   opacity: 0.88;
   pointer-events: none;

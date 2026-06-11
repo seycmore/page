@@ -3,8 +3,12 @@ const scene = document.querySelector(".scene");
 
 if (page && scene) {
   let activationTimer = 0;
+  let pointerFrame = 0;
+  let latestPointer = null;
 
-  const setPointer = (clientX, clientY) => {
+  window.setTimeout(() => page.classList.add("is-revealed"), 2100);
+
+  const applyPointer = (clientX, clientY) => {
     const rect = scene.getBoundingClientRect();
     const x = ((clientX - rect.left) / rect.width) * 100;
     const y = ((clientY - rect.top) / rect.height) * 100;
@@ -15,6 +19,22 @@ if (page && scene) {
     page.style.setProperty("--pointer-y", `${y}%`);
     page.style.setProperty("--tilt-x", `${tiltX}px`);
     page.style.setProperty("--tilt-y", `${tiltY}px`);
+  };
+
+  const setPointer = (clientX, clientY) => {
+    latestPointer = { clientX, clientY };
+
+    if (pointerFrame) {
+      return;
+    }
+
+    pointerFrame = requestAnimationFrame(() => {
+      pointerFrame = 0;
+
+      if (latestPointer) {
+        applyPointer(latestPointer.clientX, latestPointer.clientY);
+      }
+    });
   };
 
   const createSpark = (x, y, index) => {

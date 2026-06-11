@@ -178,48 +178,49 @@ a {
 
 .contact-panel {
   position: absolute;
-  right: clamp(16px, 3vw, 38px);
-  bottom: clamp(18px, 4vw, 48px);
+  left: 50%;
+  bottom: clamp(18px, 3.4vw, 42px);
   z-index: 5;
-  width: min(390px, calc(100vw - 32px));
-  padding: 15px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
+  width: min(1120px, calc(100vw - 40px));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(18px, 4vw, 48px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
   color: var(--text);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025)),
-    var(--glass);
-  box-shadow:
-    0 22px 70px rgba(0, 0, 0, 0.42),
-    0 0 50px rgba(143, 54, 255, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.11);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: transparent;
+  box-shadow: none;
+  transform: translateX(-50%);
 }
 
 .eyebrow {
   color: #ffffff;
-  font: 850 clamp(0.78rem, 1.6vw, 0.9rem)/1.35 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font: 850 clamp(0.72rem, 1.25vw, 0.86rem)/1.35 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-shadow: 0 0 18px rgba(143, 54, 255, 0.72);
 }
 
 .security-copy {
-  margin-top: 8px;
+  max-width: 520px;
+  margin-top: 6px;
   color: var(--muted);
-  font: 600 clamp(0.84rem, 1.6vw, 0.98rem)/1.58 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font: 600 clamp(0.8rem, 1.3vw, 0.95rem)/1.45 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  text-shadow: 0 0 18px rgba(0, 0, 0, 0.58);
 }
 
 .contact-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  margin-top: 13px;
+  margin-top: 0;
 }
 
 .contact-link {
-  min-height: 42px;
+  min-height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -227,12 +228,14 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 999px;
   color: var(--text);
-  background: rgba(143, 54, 255, 0.26);
+  background: rgba(21, 8, 54, 0.44);
   font: 850 0.82rem/1 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
   box-shadow: 0 0 24px rgba(143, 54, 255, 0.36);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
@@ -353,11 +356,16 @@ a {
   }
 
   .contact-panel {
+    left: 14px;
     right: 14px;
     bottom: 14px;
-    left: 14px;
+    display: block;
     width: auto;
-    padding: 14px;
-    border-radius: 16px;
+    transform: none;
+  }
+
+  .contact-actions {
+    justify-content: flex-start;
+    margin-top: 10px;
   }
 }

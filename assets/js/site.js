@@ -6,8 +6,6 @@ if (page && scene) {
   let pointerFrame = 0;
   let latestPointer = null;
 
-  window.setTimeout(() => page.classList.add("is-revealed"), 2100);
-
   const applyPointer = (clientX, clientY) => {
     const rect = scene.getBoundingClientRect();
     const x = ((clientX - rect.left) / rect.width) * 100;

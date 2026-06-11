@@ -59,6 +59,7 @@ a {
 .scene,
 .wallpaper-layer,
 .light-field,
+.magnetic-waves,
 .scan-field,
 .click-flare {
   position: absolute;
@@ -99,8 +100,59 @@ a {
   opacity: 0.9;
 }
 
-.scan-field {
+.magnetic-waves {
   z-index: 2;
+  overflow: hidden;
+  opacity: 0.72;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 34%, #000 58%, #000 100%);
+}
+
+.magnetic-waves::before,
+.magnetic-waves::after {
+  content: "";
+  position: absolute;
+  left: -22%;
+  bottom: -28%;
+  width: 144%;
+  height: 66%;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      ellipse at 50% 102%,
+      transparent 0 31px,
+      rgba(255, 255, 255, 0.1) 32px 33px,
+      rgba(189, 79, 255, 0.28) 34px 36px,
+      transparent 37px 64px
+    );
+  filter:
+    drop-shadow(0 0 10px rgba(167, 75, 255, 0.55))
+    drop-shadow(0 0 24px rgba(102, 38, 255, 0.36));
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+
+.magnetic-waves::before {
+  animation: magnetic-flow-a 9s ease-in-out infinite alternate;
+}
+
+.magnetic-waves::after {
+  bottom: -31%;
+  opacity: 0.56;
+  background:
+    repeating-radial-gradient(
+      ellipse at 48% 104%,
+      transparent 0 42px,
+      rgba(255, 255, 255, 0.08) 43px 44px,
+      rgba(114, 43, 255, 0.24) 45px 48px,
+      transparent 49px 82px
+    );
+  animation: magnetic-flow-b 12s ease-in-out infinite alternate;
+}
+
+.scan-field {
+  z-index: 3;
   background:
     linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent),
     repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 5px);
@@ -112,7 +164,7 @@ a {
 }
 
 .click-flare {
-  z-index: 3;
+  z-index: 4;
   opacity: 0;
   background:
     radial-gradient(circle at var(--pulse-x) var(--pulse-y), rgba(255, 255, 255, 0.9), rgba(206, 147, 255, 0.42) 3%, rgba(143, 54, 255, 0.22) 9%, transparent 24%);
@@ -128,7 +180,7 @@ a {
   position: absolute;
   right: clamp(16px, 3vw, 38px);
   bottom: clamp(18px, 4vw, 48px);
-  z-index: 4;
+  z-index: 5;
   width: min(390px, calc(100vw - 32px));
   padding: 15px;
   border: 1px solid var(--border);
@@ -193,7 +245,7 @@ a {
 
 .spark {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   width: 10px;
   height: 10px;
   left: var(--spark-x);
@@ -212,6 +264,37 @@ a {
 @keyframes scan-sweep {
   to {
     background-position: 145% 0, 0 0;
+  }
+}
+
+@keyframes magnetic-flow-a {
+  0% {
+    opacity: 0.58;
+    transform: translate3d(-1.8%, 0, 0) scaleX(1.02) scaleY(0.96) rotate(-0.45deg);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translate3d(1.2%, -2.6%, 0) scaleX(1.07) scaleY(1.04) rotate(0.35deg);
+  }
+
+  100% {
+    opacity: 0.66;
+    transform: translate3d(2.4%, 0.5%, 0) scaleX(1.03) scaleY(0.98) rotate(0.6deg);
+  }
+}
+
+@keyframes magnetic-flow-b {
+  0% {
+    transform: translate3d(2.8%, 0.6%, 0) scaleX(1.08) scaleY(0.94) rotate(0.7deg);
+  }
+
+  50% {
+    transform: translate3d(-1.6%, -3.2%, 0) scaleX(1.02) scaleY(1.08) rotate(-0.5deg);
+  }
+
+  100% {
+    transform: translate3d(-3%, 0, 0) scaleX(1.06) scaleY(0.96) rotate(-0.25deg);
   }
 }
 
@@ -256,6 +339,8 @@ a {
   }
 
   .scan-field,
+  .magnetic-waves::before,
+  .magnetic-waves::after,
   .click-flare,
   .spark {
     animation: none;

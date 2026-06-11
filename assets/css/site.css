@@ -114,6 +114,21 @@ a {
   opacity: 0.88;
   pointer-events: none;
   transition: opacity 180ms ease;
+  animation: globe-lights-breathe 5.8s ease-in-out infinite;
+  will-change: opacity;
+}
+
+.globe-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 82% 42%, rgba(250, 241, 255, 0.2) 0 8%, rgba(147, 68, 255, 0.16) 10% 22%, transparent 34%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: scale(0.985);
+  animation: globe-orbit-pulse 7.2s ease-in-out infinite;
+  will-change: opacity, transform;
 }
 
 .scene:hover .globe-glow {
@@ -220,6 +235,31 @@ a {
   animation: spark-pop 950ms ease-out forwards;
 }
 
+@keyframes globe-lights-breathe {
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes globe-orbit-pulse {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+
+  42%,
+  58% {
+    opacity: 0.74;
+    transform: scale(1.018);
+  }
+}
+
 @keyframes click-flare {
   0% {
     opacity: 0;
@@ -261,6 +301,8 @@ a {
   }
 
   .click-flare,
+  .globe-glow,
+  .globe-glow::before,
   .spark {
     animation: none;
   }

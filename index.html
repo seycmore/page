@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; connect-src 'none'; font-src 'self'; form-action 'none'; img-src 'self'; manifest-src 'none'; media-src 'none'; object-src 'none'; script-src 'none'; style-src 'self'; worker-src 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; connect-src 'none'; font-src 'none'; form-action 'none'; img-src 'self'; manifest-src 'none'; media-src 'self'; object-src 'none'; script-src 'none'; style-src 'self'; worker-src 'none'; upgrade-insecure-requests" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -16,11 +16,10 @@
   <link rel="alternate" hreflang="pt-BR" href="https://www.seycmore.com/" />
   <link rel="alternate" hreflang="en" href="https://www.seycmore.com/en/" />
   <link rel="alternate" hreflang="x-default" href="https://www.seycmore.com/" />
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260611-007" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260611-007" />
-  <link rel="icon" href="/favicon.ico?v=20260611-007" sizes="any" />
-  <link rel="shortcut icon" href="/favicon.ico?v=20260611-007" />
-  <link rel="apple-touch-icon" href="/assets/icons/seycmore-apple-touch-icon-180.png?v=20260611-007" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260611-008" />
+  <link rel="icon" href="/favicon.ico?v=20260611-008" sizes="any" />
+  <link rel="shortcut icon" href="/favicon.ico?v=20260611-008" />
+  <link rel="apple-touch-icon" href="/assets/icons/seycmore-apple-touch-icon-180.png?v=20260611-008" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Seycmore" />
@@ -31,21 +30,20 @@
 </head>
 
 <body>
-  <main class="page">
-    <section class="hero" aria-label="Seycmore">
-      <article class="card">
-        <img class="logo" src="/assets/icons/seycmore-symbol-transparent-1024.png" alt="" />
-
-        <h1 class="wordmark" data-text="SEYCMORE" aria-label="Seycmore">
-          <span aria-hidden="true">SEYCMORE</span>
-        </h1>
-
-        <p class="tagline">Secure Connections. Limitless Possibilities.</p>
-        <span class="neon-line" aria-hidden="true"></span>
-
-        <a class="contact" href="mailto:seycmore@seycmore.com">seycmore@seycmore.com</a>
-      </article>
-    </section>
+  <main class="video-page" aria-label="Seycmore">
+    <h1>Seycmore</h1>
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="/assets/backgrounds/high-res/seycmore-network-globe-lockup-wallpaper-2x.png"
+      aria-hidden="true"
+    >
+      <source src="/assets/videos/seycmore-hero.mp4" type="video/mp4" />
+    </video>
   </main>
 </body>
 </html>

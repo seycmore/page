@@ -9,8 +9,6 @@
   --tilt-y: 0px;
   --pulse-x: 50%;
   --pulse-y: 50%;
-  --border: rgba(233, 221, 255, 0.3);
-  --glass: rgba(7, 4, 18, 0.42);
 }
 
 * {
@@ -23,11 +21,12 @@ html,
 body {
   width: 100%;
   min-height: 100%;
-  background: var(--bg);
+  background: #000;
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  color: var(--text);
 }
 
 a {
@@ -35,14 +34,8 @@ a {
 }
 
 .interactive-page {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  height: 100svh;
-  overflow: hidden;
-  color: var(--text);
-  background: var(--bg);
-  cursor: crosshair;
+  min-height: 100svh;
+  background: #000;
   isolation: isolate;
 }
 
@@ -56,7 +49,16 @@ a {
   white-space: nowrap;
 }
 
-.scene,
+.scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  overflow: hidden;
+  background: var(--bg);
+  cursor: crosshair;
+  isolation: isolate;
+}
+
 .wallpaper-layer,
 .light-field,
 .magnetic-waves,
@@ -66,14 +68,7 @@ a {
   inset: 0;
 }
 
-.scene {
-  z-index: 0;
-  overflow: hidden;
-  perspective: 1200px;
-}
-
 .wallpaper-layer {
-  inset: -2.5%;
   background-image: url("/assets/backgrounds/high-res/seycmore-original-wallpaper-4k.jpg");
   background-image:
     image-set(
@@ -81,168 +76,160 @@ a {
       url("/assets/backgrounds/high-res/seycmore-original-wallpaper-4k.jpg") type("image/jpeg") 1x
     );
   background-position: center center;
-  background-size: cover;
-  filter: saturate(1.08) contrast(1.05);
+  background-size: 100% 100%;
+  filter: saturate(1.08) contrast(1.04);
   transform:
-    translate3d(calc(var(--tilt-x) * -1), calc(var(--tilt-y) * -1), 0)
-    scale(1.035);
-  transition: transform 180ms ease-out, filter 240ms ease;
+    translate3d(calc(var(--tilt-x) * -0.35), calc(var(--tilt-y) * -0.35), 0)
+    scale(1.008);
+  transition: transform 180ms ease-out;
   will-change: transform;
 }
 
 .light-field {
   z-index: 1;
   background:
-    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.18), rgba(180, 88, 255, 0.12) 13%, transparent 31%),
-    radial-gradient(circle at 50% 67%, rgba(143, 54, 255, 0.18), transparent 28%),
-    linear-gradient(180deg, rgba(5, 7, 10, 0.04), rgba(5, 7, 10, 0.18));
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.16), rgba(180, 88, 255, 0.11) 12%, transparent 28%),
+    radial-gradient(circle at 50% 68%, rgba(143, 54, 255, 0.12), transparent 26%);
   mix-blend-mode: screen;
-  opacity: 0.9;
+  opacity: 0.78;
+  pointer-events: none;
 }
 
 .magnetic-waves {
   z-index: 2;
+  top: auto;
+  height: 31%;
   overflow: hidden;
-  opacity: 0.72;
+  opacity: 0.9;
   mix-blend-mode: screen;
   pointer-events: none;
-  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 34%, #000 58%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.38) 22%, #000 58%, #000 100%);
 }
 
 .magnetic-waves::before,
 .magnetic-waves::after {
   content: "";
   position: absolute;
-  left: -22%;
-  bottom: -28%;
-  width: 144%;
-  height: 66%;
+  left: -18%;
+  bottom: -70%;
+  width: 136%;
+  height: 170%;
   border-radius: 50%;
   background:
     repeating-radial-gradient(
-      ellipse at 50% 102%,
-      transparent 0 31px,
-      rgba(255, 255, 255, 0.1) 32px 33px,
-      rgba(189, 79, 255, 0.28) 34px 36px,
-      transparent 37px 64px
+      ellipse at 50% 100%,
+      transparent 0 30px,
+      rgba(255, 255, 255, 0.16) 31px 32px,
+      rgba(205, 84, 255, 0.34) 33px 35px,
+      transparent 36px 64px
     );
   filter:
-    drop-shadow(0 0 10px rgba(167, 75, 255, 0.55))
-    drop-shadow(0 0 24px rgba(102, 38, 255, 0.36));
+    drop-shadow(0 0 10px rgba(201, 74, 255, 0.62))
+    drop-shadow(0 0 26px rgba(102, 38, 255, 0.44));
   transform-origin: center bottom;
   will-change: transform, opacity;
 }
 
 .magnetic-waves::before {
-  animation: magnetic-flow-a 9s ease-in-out infinite alternate;
+  animation: magnetic-flow-a 6.8s ease-in-out infinite alternate;
 }
 
 .magnetic-waves::after {
-  bottom: -31%;
-  opacity: 0.56;
+  bottom: -74%;
+  opacity: 0.52;
   background:
     repeating-radial-gradient(
-      ellipse at 48% 104%,
+      ellipse at 50% 102%,
       transparent 0 42px,
-      rgba(255, 255, 255, 0.08) 43px 44px,
-      rgba(114, 43, 255, 0.24) 45px 48px,
+      rgba(255, 255, 255, 0.1) 43px 44px,
+      rgba(119, 48, 255, 0.32) 45px 48px,
       transparent 49px 82px
     );
-  animation: magnetic-flow-b 12s ease-in-out infinite alternate;
+  animation: magnetic-flow-b 9s ease-in-out infinite alternate;
 }
 
 .scan-field {
   z-index: 3;
   background:
-    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent),
-    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 5px);
-  background-size: 38% 100%, 100% 100%;
-  background-position: -45% 0, 0 0;
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.13), transparent),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px);
+  background-size: 32% 100%, 100% 100%;
+  background-position: -40% 0, 0 0;
   mix-blend-mode: screen;
-  opacity: 0.22;
-  animation: scan-sweep 7s linear infinite;
+  opacity: 0.14;
+  animation: scan-sweep 8s linear infinite;
+  pointer-events: none;
 }
 
 .click-flare {
   z-index: 4;
   opacity: 0;
   background:
-    radial-gradient(circle at var(--pulse-x) var(--pulse-y), rgba(255, 255, 255, 0.9), rgba(206, 147, 255, 0.42) 3%, rgba(143, 54, 255, 0.22) 9%, transparent 24%);
+    radial-gradient(circle at var(--pulse-x) var(--pulse-y), rgba(255, 255, 255, 0.9), rgba(206, 147, 255, 0.42) 3%, rgba(143, 54, 255, 0.2) 9%, transparent 24%);
   mix-blend-mode: screen;
   pointer-events: none;
 }
 
-.interactive-page.is-activated .click-flare {
+.scene.is-activated .click-flare {
   animation: click-flare 760ms ease-out;
 }
 
 .contact-panel {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(18px, 3.4vw, 42px);
+  position: relative;
   z-index: 5;
-  width: min(1120px, calc(100vw - 40px));
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  width: 100%;
+  display: flex;
   align-items: center;
-  gap: clamp(18px, 4vw, 48px);
-  padding: 0;
-  border: 0;
-  border-radius: 0;
+  justify-content: center;
+  gap: clamp(26px, 5vw, 72px);
+  padding: clamp(26px, 4vw, 42px) 22px clamp(30px, 4.4vw, 50px);
+  background: #000;
   color: var(--text);
-  background: transparent;
-  box-shadow: none;
-  transform: translateX(-50%);
+  text-align: center;
 }
 
 .eyebrow {
   color: #ffffff;
-  font: 850 clamp(0.72rem, 1.25vw, 0.86rem)/1.35 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font: 850 clamp(0.82rem, 1.35vw, 1.02rem)/1.35 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-shadow: 0 0 18px rgba(143, 54, 255, 0.72);
 }
 
 .security-copy {
-  max-width: 520px;
-  margin-top: 6px;
+  max-width: 440px;
   color: var(--muted);
-  font: 600 clamp(0.8rem, 1.3vw, 0.95rem)/1.45 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  text-shadow: 0 0 18px rgba(0, 0, 0, 0.58);
+  font: 600 clamp(0.86rem, 1.35vw, 1.02rem)/1.45 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
 .contact-actions {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  margin-top: 0;
+  justify-content: center;
 }
 
 .contact-link {
-  min-height: 40px;
+  min-height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 16px;
+  padding: 11px 18px;
   border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 999px;
   color: var(--text);
-  background: rgba(21, 8, 54, 0.44);
-  font: 850 0.82rem/1 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: rgba(21, 8, 54, 0.72);
+  font: 850 0.86rem/1 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
   box-shadow: 0 0 24px rgba(143, 54, 255, 0.36);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
 .contact-link:hover,
 .contact-link:focus-visible {
   border-color: rgba(255, 255, 255, 0.58);
-  background: rgba(143, 54, 255, 0.42);
+  background: rgba(143, 54, 255, 0.46);
   transform: translateY(-2px);
 }
 
@@ -266,38 +253,41 @@ a {
 
 @keyframes scan-sweep {
   to {
-    background-position: 145% 0, 0 0;
+    background-position: 140% 0, 0 0;
   }
 }
 
 @keyframes magnetic-flow-a {
   0% {
-    opacity: 0.58;
-    transform: translate3d(-1.8%, 0, 0) scaleX(1.02) scaleY(0.96) rotate(-0.45deg);
+    opacity: 0.62;
+    transform: translate3d(-2.1%, 0, 0) scaleX(1.02) scaleY(0.96) rotate(-0.45deg);
   }
 
   50% {
-    opacity: 0.9;
-    transform: translate3d(1.2%, -2.6%, 0) scaleX(1.07) scaleY(1.04) rotate(0.35deg);
+    opacity: 1;
+    transform: translate3d(1.4%, -7%, 0) scaleX(1.07) scaleY(1.08) rotate(0.35deg);
   }
 
   100% {
-    opacity: 0.66;
-    transform: translate3d(2.4%, 0.5%, 0) scaleX(1.03) scaleY(0.98) rotate(0.6deg);
+    opacity: 0.72;
+    transform: translate3d(2.6%, -1%, 0) scaleX(1.03) scaleY(0.98) rotate(0.6deg);
   }
 }
 
 @keyframes magnetic-flow-b {
   0% {
-    transform: translate3d(2.8%, 0.6%, 0) scaleX(1.08) scaleY(0.94) rotate(0.7deg);
+    opacity: 0.38;
+    transform: translate3d(3%, 0.6%, 0) scaleX(1.08) scaleY(0.94) rotate(0.7deg);
   }
 
   50% {
-    transform: translate3d(-1.6%, -3.2%, 0) scaleX(1.02) scaleY(1.08) rotate(-0.5deg);
+    opacity: 0.72;
+    transform: translate3d(-1.8%, -8.2%, 0) scaleX(1.02) scaleY(1.1) rotate(-0.5deg);
   }
 
   100% {
-    transform: translate3d(-3%, 0, 0) scaleX(1.06) scaleY(0.96) rotate(-0.25deg);
+    opacity: 0.44;
+    transform: translate3d(-3.2%, -1%, 0) scaleX(1.06) scaleY(0.96) rotate(-0.25deg);
   }
 }
 
@@ -337,7 +327,7 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
   .wallpaper-layer {
-    transform: scale(1.02);
+    transform: none;
     transition: none;
   }
 
@@ -350,22 +340,10 @@ a {
   }
 }
 
-@media (max-width: 760px) {
-  .wallpaper-layer {
-    background-position: center center;
-  }
-
+@media (max-width: 860px) {
   .contact-panel {
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-    display: block;
-    width: auto;
-    transform: none;
-  }
-
-  .contact-actions {
-    justify-content: flex-start;
-    margin-top: 10px;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px 18px 34px;
   }
 }

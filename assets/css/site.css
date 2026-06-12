@@ -69,11 +69,11 @@ a {
 }
 
 .wallpaper-layer {
-  background-image: url("/assets/backgrounds/high-res/seycmore-papelaria-wallpaper-1920.jpg");
+  background-image: url("/assets/backgrounds/high-res/seycmore-papelaria-logo-wallpaper-1920.jpg");
   background-image:
     image-set(
-      url("/assets/backgrounds/high-res/seycmore-papelaria-wallpaper-4k.webp") type("image/webp") 2x,
-      url("/assets/backgrounds/high-res/seycmore-papelaria-wallpaper-1920.jpg") type("image/jpeg") 1x
+      url("/assets/backgrounds/high-res/seycmore-papelaria-logo-wallpaper-4k.webp") type("image/webp") 2x,
+      url("/assets/backgrounds/high-res/seycmore-papelaria-logo-wallpaper-1920.jpg") type("image/jpeg") 1x
     );
   background-position: center center;
   background-size: 100% 100%;
